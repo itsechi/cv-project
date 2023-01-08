@@ -3,16 +3,16 @@ import React, { Component } from "react";
 export class Practical extends Component {
   render() {
     return (
-      <section>
-        <h2>Practical experience</h2>
+      <fieldset>
+        <legend>Practical experience</legend>
+        <label>
+          Job title <input type="text"></input>
+        </label>
         <label>
           Company name <input type="text"></input>
         </label>
         <label>
-          Position title <input type="text"></input>
-        </label>
-        <label>
-          Main tasks <input type="text"></input>
+          Location <input type="text"></input>
         </label>
         <label>
           From <input type="date"></input>
@@ -20,7 +20,10 @@ export class Practical extends Component {
         <label>
           To <input type="date"></input>
         </label>
-      </section>
+        <label>
+          Main tasks of the job <textarea></textarea>
+        </label>
+      </fieldset>
     );
   }
 }

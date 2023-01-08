@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 
-export class General extends Component {
+export class Personal extends Component {
   render() {
     return (
-      <section>
-        <h2>General information</h2>
+      <fieldset>
+        <legend>Personal information</legend>
         <label>
           First name <input type="text"></input>
         </label>
@@ -12,15 +12,12 @@ export class General extends Component {
           Last name <input type="text"></input>
         </label>
         <label>
-          Address <input type="text"></input>
+          Title <input type="text"></input>
         </label>
         <label>
-          Email <input type="email"></input>
+          Description <textarea></textarea>
         </label>
-        <label>
-          Phone number <input type="tel"></input>
-        </label>
-      </section>
+      </fieldset>
     );
   }
 }
