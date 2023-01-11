@@ -11,16 +11,14 @@ export class App extends Component {
         firstName: "Full",
         lastName: "Name",
         title: "Title",
-        description: `Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et
-        massa mi. Aliquam in hendrerit urna. Pellentesque sit amet
-        sapien fringilla, mattis ligula consectetur, ultrices mauris.
-        Maecenas vitae mattis tellus.`,
+        description:
+          "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus.",
       },
 
       contact: {
-        phoneNumber: '+00 123 456 789',
-        email: 'fullname@gmail.com',
-        address: 'Apartment 23, Street Name, 255 New York, USA'
+        phoneNumber: "+00 123 456 789",
+        email: "fullname@gmail.com",
+        address: "Apartment 23, Street Name, 255 New York, USA",
       },
 
       education: [
@@ -31,6 +29,19 @@ export class App extends Component {
           schoolLocation: "Location",
           schoolStartYear: 2012,
           schoolEndYear: 2016,
+        },
+      ],
+
+      practical: [
+        {
+          index: 0,
+          job: "Job title",
+          company: "Company name",
+          location: "Location",
+          from: 2012,
+          to: 2016,
+          tasks:
+            "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue.",
         },
       ],
     };
@@ -52,7 +63,7 @@ export class App extends Component {
         contact: { ...prevState.contact, [e.target.name]: e.target.value },
       };
     });
-  }
+  };
 
   handleEducationalChange = (e) => {
     this.setState((prevState) => {
@@ -88,6 +99,22 @@ export class App extends Component {
     }));
   };
 
+  handlePracticalChange = (e) => {
+    this.setState((prevState) => {
+      const index = +e.target.closest("div").dataset.id;
+      const newItems = this.state.practical.map((item) => {
+        if (item.index === index) {
+          return { ...item, [e.target.name]: e.target.value };
+        } else return item;
+      });
+
+      return {
+        ...prevState,
+        practical: [...newItems],
+      };
+    });
+  };
+
   render() {
     return (
       <main>
@@ -97,6 +124,7 @@ export class App extends Component {
           addInputs={this.addEducationalInputs}
           handlePersonalChange={this.handlePersonalChange}
           handleContactChange={this.handleContactChange}
+          handlePracticalChange={this.handlePracticalChange}
         />
         <Preview state={this.state} />
       </main>
