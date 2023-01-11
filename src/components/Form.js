@@ -10,7 +10,10 @@ export class Form extends Component {
       <form>
         <Personal />
         <Contact />
-        <Educational />
+        <Educational
+          state={this.props.state}
+          handleChange={this.props.handleChange}
+        />
         <Practical />
       </form>
     );

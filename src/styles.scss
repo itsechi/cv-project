@@ -195,3 +195,15 @@ label textarea {
     }
   }
 }
+
+.btn {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #FFFFFF;
+  background-color: $dark-gray;
+  padding: 0.5rem 2rem;
+  border-radius: 5px;
+  width: 50%;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}

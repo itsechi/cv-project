@@ -41,9 +41,15 @@ export class Preview extends Component {
           <div className="preview__section">
             <h3>Education</h3>
             <div className="preview__education">
-              <p>Degree Here</p>
-              <p>University, Location</p>
-              <p>2012 - 2016</p>
+              <p>{this.props.state.education.degree}</p>
+              <p>
+                {this.props.state.education.schoolName},{" "}
+                {this.props.state.education.schoolLocation}
+              </p>
+              <p>
+                {this.props.state.education.schoolStartYear} -{" "}
+                {this.props.state.education.schoolEndYear}
+              </p>
             </div>
           </div>
 
@@ -57,7 +63,13 @@ export class Preview extends Component {
               <div className="preview__experience--right">
                 <p>Job title here</p>
                 <p>Company name</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo.</p>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et
+                  massa mi. Aliquam in hendrerit urna. Pellentesque sit amet
+                  sapien fringilla, mattis ligula consectetur, ultrices mauris.
+                  Maecenas vitae mattis tellus. Nullam quis imperdiet augue.
+                  Vestibulum auctor ornare leo.
+                </p>
               </div>
             </div>
             <div className="preview__experience">
@@ -68,7 +80,13 @@ export class Preview extends Component {
               <div className="preview__experience--right">
                 <p>Job title here</p>
                 <p>Company name</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo.</p>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et
+                  massa mi. Aliquam in hendrerit urna. Pellentesque sit amet
+                  sapien fringilla, mattis ligula consectetur, ultrices mauris.
+                  Maecenas vitae mattis tellus. Nullam quis imperdiet augue.
+                  Vestibulum auctor ornare leo.
+                </p>
               </div>
             </div>
           </div>

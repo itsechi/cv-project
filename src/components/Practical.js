@@ -15,10 +15,10 @@ export class Practical extends Component {
           Location <input type="text"></input>
         </label>
         <label>
-          From <input type="date"></input>
+          From <input type="number" min="1900" max="2099"></input>
         </label>
         <label>
-          To <input type="date"></input>
+          To <input type="number" min="1900" max="2099"></input>
         </label>
         <label>
           Main tasks of the job <textarea></textarea>
