@@ -40,17 +40,22 @@ export class Preview extends Component {
 
           <div className="preview__section">
             <h3>Education</h3>
-            <div className="preview__education">
-              <p>{this.props.state.education.degree}</p>
-              <p>
-                {this.props.state.education.schoolName},{" "}
-                {this.props.state.education.schoolLocation}
-              </p>
-              <p>
-                {this.props.state.education.schoolStartYear} -{" "}
-                {this.props.state.education.schoolEndYear}
-              </p>
-            </div>
+
+            {this.props.state.education.map(() => {
+              return (
+                <div className="preview__education">
+                  <p>{this.props.state.education.degree}</p>
+                  <p>
+                    {this.props.state.education.schoolName},{" "}
+                    {this.props.state.education.schoolLocation}
+                  </p>
+                  <p>
+                    {this.props.state.education.schoolStartYear} -{" "}
+                    {this.props.state.education.schoolEndYear}
+                  </p>
+                </div>
+              );
+            })}
           </div>
 
           <div className="preview__section">

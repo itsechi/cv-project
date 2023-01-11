@@ -13,6 +13,7 @@ export class Form extends Component {
         <Educational
           state={this.props.state}
           handleChange={this.props.handleChange}
+          addInputs={this.props.addInputs}
         />
         <Practical />
       </form>
