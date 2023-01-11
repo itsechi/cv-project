@@ -5,15 +5,12 @@ export class Preview extends Component {
     return (
       <section className="preview">
         <div className="preview__header">
-          <h1>Full name</h1>
-          <h3>Title</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa
-            mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien
-            fringilla, mattis ligula consectetur, ultrices mauris. Maecenas
-            vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor
-            ornare leo.
-          </p>
+          <h1>
+            {this.props.state.personal.firstName}{" "}
+            {this.props.state.personal.lastName}
+          </h1>
+          <h3>{this.props.state.personal.title}</h3>
+          <p>{this.props.state.personal.description}</p>
         </div>
 
         <div className="preview__main">
@@ -46,12 +43,10 @@ export class Preview extends Component {
                 <div className="preview__education">
                   <p>{item.degree}</p>
                   <p>
-                    {item.schoolName},{" "}
-                    {item.schoolLocation}
+                    {item.schoolName}, {item.schoolLocation}
                   </p>
                   <p>
-                    {item.schoolStartYear} -{" "}
-                    {item.schoolEndYear}
+                    {item.schoolStartYear} - {item.schoolEndYear}
                   </p>
                 </div>
               );

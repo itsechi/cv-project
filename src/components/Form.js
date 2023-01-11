@@ -8,11 +8,11 @@ export class Form extends Component {
   render() {
     return (
       <form>
-        <Personal />
+        <Personal handleChange={this.props.handlePersonalChance}/>
         <Contact />
         <Educational
           state={this.props.state}
-          handleChange={this.props.handleChange}
+          handleChange={this.props.handleEducationalChange}
           addInputs={this.props.addInputs}
         />
         <Practical />

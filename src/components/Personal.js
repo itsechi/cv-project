@@ -6,16 +6,16 @@ export class Personal extends Component {
       <fieldset>
         <legend>Personal information</legend>
         <label>
-          First name <input type="text"></input>
+          First name <input type="text" name="firstName" onChange={this.props.handleChange}></input>
         </label>
         <label>
-          Last name <input type="text"></input>
+          Last name <input type="text" name="lastName" onChange={this.props.handleChange}></input>
         </label>
         <label>
-          Title <input type="text"></input>
+          Title <input type="text" name="title" onChange={this.props.handleChange}></input>
         </label>
         <label>
-          Description <textarea></textarea>
+          Description <textarea name="description" onChange={this.props.handleChange}></textarea>
         </label>
       </fieldset>
     );

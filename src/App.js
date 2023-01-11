@@ -7,10 +7,20 @@ export class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      personal: {
+        firstName: "Full",
+        lastName: "Name",
+        title: "Title",
+        description: `Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et
+        massa mi. Aliquam in hendrerit urna. Pellentesque sit amet
+        sapien fringilla, mattis ligula consectetur, ultrices mauris.
+        Maecenas vitae mattis tellus.`,
+      },
+
       education: [
         {
           index: 0,
-          degree: "Degree here",
+          degree: "Degree",
           schoolName: "University",
           schoolLocation: "Location",
           schoolStartYear: 2012,
@@ -19,6 +29,15 @@ export class App extends Component {
       ],
     };
   }
+
+  handlePersonalChance = (e) => {
+    this.setState((prevState) => {
+      return {
+        ...prevState,
+        personal: { ...prevState.personal, [e.target.name]: e.target.value },
+      };
+    });
+  };
 
   handleEducationalChange = (e) => {
     this.setState((prevState) => {
@@ -59,8 +78,9 @@ export class App extends Component {
       <main>
         <Form
           state={this.state}
-          handleChange={this.handleEducationalChange}
+          handleEducationalChange={this.handleEducationalChange}
           addInputs={this.addEducationalInputs}
+          handlePersonalChance={this.handlePersonalChance}
         />
         <Preview state={this.state} />
       </main>
