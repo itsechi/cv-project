@@ -46,7 +46,12 @@ export class App extends Component {
   };
 
   handleContactChange = (e) => {
-
+    this.setState((prevState) => {
+      return {
+        ...prevState,
+        contact: { ...prevState.contact, [e.target.name]: e.target.value },
+      };
+    });
   }
 
   handleEducationalChange = (e) => {
@@ -91,6 +96,7 @@ export class App extends Component {
           handleEducationalChange={this.handleEducationalChange}
           addInputs={this.addEducationalInputs}
           handlePersonalChange={this.handlePersonalChange}
+          handleContactChange={this.handleContactChange}
         />
         <Preview state={this.state} />
       </main>

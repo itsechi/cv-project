@@ -6,13 +6,28 @@ export class Contact extends Component {
       <fieldset>
         <legend>Contact</legend>
         <label>
-          Phone number <input type="tel"></input>
+          Phone number{" "}
+          <input
+            type="tel"
+            name="phoneNumber"
+            onChange={this.props.handleChange}
+          ></input>
         </label>
         <label>
-          Email <input type="email"></input>
+          Email{" "}
+          <input
+            type="email"
+            name="email"
+            onChange={this.props.handleChange}
+          ></input>
         </label>
         <label>
-          Address <input type="text"></input>
+          Address{" "}
+          <input
+            type="text"
+            name="address"
+            onChange={this.props.handleChange}
+          ></input>
         </label>
       </fieldset>
     );

@@ -9,7 +9,7 @@ export class Form extends Component {
     return (
       <form>
         <Personal handleChange={this.props.handlePersonalChange}/>
-        <Contact />
+        <Contact handleChange={this.props.handleContactChange}/>
         <Educational
           state={this.props.state}
           handleChange={this.props.handleEducationalChange}

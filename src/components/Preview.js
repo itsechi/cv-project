@@ -19,25 +19,24 @@ export class Preview extends Component {
             <div className="preview__contact">
               <span className="material-icons">phone</span>
               <p>Phone</p>
-              <p className="preview__user-info">+00 123 456 789</p>
+              <p className="preview__user-info">{this.props.state.contact.phoneNumber}</p>
             </div>
             <div className="preview__contact">
               <span className="material-icons">email</span>
               <p>Email</p>
-              <p className="preview__user-info">fullname@gmail.com</p>
+              <p className="preview__user-info">{this.props.state.contact.email}</p>
             </div>
             <div className="preview__contact">
               <span className="material-icons">home</span>
               <p>Address</p>
               <p className="preview__user-info">
-                Apartment 23, Street Name, 255 New York, USA
+              {this.props.state.contact.address}
               </p>
             </div>
           </div>
 
           <div className="preview__section">
             <h3>Education</h3>
-
             {this.props.state.education.map((item) => {
               return (
                 <div className="preview__education">
