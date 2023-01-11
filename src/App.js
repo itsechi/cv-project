@@ -115,16 +115,37 @@ export class App extends Component {
     });
   };
 
+  addPracticalInputs = (e) => {
+    e.preventDefault();
+    this.setState((prevState) => ({
+      ...prevState,
+      practical: [
+        ...prevState.practical,
+        {
+          index: this.state.practical.length,
+          job: "Job title",
+          company: "Company name",
+          location: "Location",
+          from: 2012,
+          to: 2016,
+          tasks:
+            "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue.",
+        },
+      ],
+    }));
+  };
+
   render() {
     return (
       <main>
         <Form
           state={this.state}
           handleEducationalChange={this.handleEducationalChange}
-          addInputs={this.addEducationalInputs}
+          addEducationalInputs={this.addEducationalInputs}
           handlePersonalChange={this.handlePersonalChange}
           handleContactChange={this.handleContactChange}
           handlePracticalChange={this.handlePracticalChange}
+          addPracticalInputs={this.addPracticalInputs}
         />
         <Preview state={this.state} />
       </main>

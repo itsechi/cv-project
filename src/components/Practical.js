@@ -64,6 +64,10 @@ export class Practical extends Component {
             </div>
           );
         })}
+
+        <button className="btn" onClick={this.props.addInputs}>
+          Add
+        </button>
       </fieldset>
     );
   }
