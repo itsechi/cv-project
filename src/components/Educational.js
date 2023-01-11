@@ -9,12 +9,12 @@ export class Educational extends Component {
         {this.props.state.education.map((item) => {
           const index = item.index;
           return (
-            <div id={index}>
+            <div data-id={index}>
               <label>
                 Degree{" "}
                 <input
                   type="text"
-                  id="degree"
+                  name="degree"
                   onChange={this.props.handleChange}
                 ></input>
               </label>
@@ -22,7 +22,7 @@ export class Educational extends Component {
                 School name{" "}
                 <input
                   type="text"
-                  id="schoolName"
+                  name="schoolName"
                   onChange={this.props.handleChange}
                 ></input>
               </label>
@@ -30,7 +30,7 @@ export class Educational extends Component {
                 City{" "}
                 <input
                   type="text"
-                  id="schoolLocation"
+                  name="schoolLocation"
                   onChange={this.props.handleChange}
                 ></input>
               </label>
@@ -40,7 +40,7 @@ export class Educational extends Component {
                   type="number"
                   min="1900"
                   max="2099"
-                  id="schoolStartYear"
+                  name="schoolStartYear"
                   onChange={this.props.handleChange}
                 ></input>
               </label>
@@ -50,7 +50,7 @@ export class Educational extends Component {
                   type="number"
                   min="1900"
                   max="2099"
-                  id="schoolEndYear"
+                  name="schoolEndYear"
                   onChange={this.props.handleChange}
                 ></input>
               </label>

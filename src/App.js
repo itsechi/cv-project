@@ -22,10 +22,10 @@ export class App extends Component {
 
   handleEducationalChange = (e) => {
     this.setState((prevState) => {
-      const index = +e.target.closest("div").id;
+      const index = +e.target.closest("div").dataset.id;
       const newItems = this.state.education.map((item) => {
         if (item.index === index) {
-          return { ...item, [e.target.id]: e.target.value };
+          return { ...item, [e.target.name]: e.target.value };
         } else return item;
       });
 
@@ -34,7 +34,6 @@ export class App extends Component {
         education: [...newItems],
       };
     });
-    console.log(this.state);
   };
 
   addEducationalInputs = (e) => {
