@@ -17,6 +17,12 @@ export class App extends Component {
         Maecenas vitae mattis tellus.`,
       },
 
+      contact: {
+        phoneNumber: '+00 123 456 789',
+        email: 'fullname@gmail.com',
+        address: 'Apartment 23, Street Name, 255 New York, USA'
+      },
+
       education: [
         {
           index: 0,
@@ -30,7 +36,7 @@ export class App extends Component {
     };
   }
 
-  handlePersonalChance = (e) => {
+  handlePersonalChange = (e) => {
     this.setState((prevState) => {
       return {
         ...prevState,
@@ -38,6 +44,10 @@ export class App extends Component {
       };
     });
   };
+
+  handleContactChange = (e) => {
+
+  }
 
   handleEducationalChange = (e) => {
     this.setState((prevState) => {
@@ -80,7 +90,7 @@ export class App extends Component {
           state={this.state}
           handleEducationalChange={this.handleEducationalChange}
           addInputs={this.addEducationalInputs}
-          handlePersonalChance={this.handlePersonalChance}
+          handlePersonalChange={this.handlePersonalChange}
         />
         <Preview state={this.state} />
       </main>
