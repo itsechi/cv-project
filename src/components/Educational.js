@@ -59,6 +59,9 @@ export class Educational extends Component {
                   value={item.schoolEndYear}
                 ></input>
               </label>
+              <button className="btn" onClick={this.props.removeInputs}>
+          Remove
+        </button>
             </div>
           );
         })}

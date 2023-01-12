@@ -14,6 +14,7 @@ export class Form extends Component {
           state={this.props.state}
           handleChange={this.props.handleEducationalChange}
           addInputs={this.props.addEducationalInputs}
+          removeInputs={this.props.removeEducationalInputs} 
         />
         <Practical
           state={this.props.state}

@@ -14,13 +14,11 @@ export class App extends Component {
         description:
           "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus.",
       },
-
       contact: {
         phoneNumber: "+00 123 456 789",
         email: "fullname@gmail.com",
         address: "Apartment 23, Street Name, 255 New York, USA",
       },
-
       education: [
         {
           index: 0,
@@ -31,7 +29,6 @@ export class App extends Component {
           schoolEndYear: 2016,
         },
       ],
-
       practical: [
         {
           index: 0,
@@ -73,7 +70,6 @@ export class App extends Component {
           return { ...item, [e.target.name]: e.target.value };
         } else return item;
       });
-
       return {
         ...prevState,
         education: [...newItems],
@@ -99,6 +95,20 @@ export class App extends Component {
     }));
   };
 
+  removeEducationalInputs = (e) => {
+    e.preventDefault();
+    this.setState((prevState) => {
+      const index = +e.target.closest("div").dataset.id;
+      const newItems = this.state.education.filter(
+        (item) => item.index !== index
+      );
+      return {
+        ...prevState,
+        education: [...newItems],
+      };
+    });
+  };
+
   handlePracticalChange = (e) => {
     this.setState((prevState) => {
       const index = +e.target.closest("div").dataset.id;
@@ -107,7 +117,6 @@ export class App extends Component {
           return { ...item, [e.target.name]: e.target.value };
         } else return item;
       });
-
       return {
         ...prevState,
         practical: [...newItems],
@@ -139,14 +148,15 @@ export class App extends Component {
     e.preventDefault();
     this.setState((prevState) => {
       const index = +e.target.closest("div").dataset.id;
-      const newItems = this.state.practical.filter((item) => item.index !== index);
-
+      const newItems = this.state.practical.filter(
+        (item) => item.index !== index
+      );
       return {
         ...prevState,
         practical: [...newItems],
       };
     });
-  }
+  };
 
   render() {
     return (
@@ -155,6 +165,7 @@ export class App extends Component {
           state={this.state}
           handleEducationalChange={this.handleEducationalChange}
           addEducationalInputs={this.addEducationalInputs}
+          removeEducationalInputs={this.removeEducationalInputs}
           handlePersonalChange={this.handlePersonalChange}
           handleContactChange={this.handleContactChange}
           handlePracticalChange={this.handlePracticalChange}
