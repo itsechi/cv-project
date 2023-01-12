@@ -16,6 +16,7 @@ export class Practical extends Component {
                   type="text"
                   name="job"
                   onChange={this.props.handleChange}
+                  value={item.job}
                 ></input>
               </label>
               <label>
@@ -61,6 +62,9 @@ export class Practical extends Component {
                   onChange={this.props.handleChange}
                 ></textarea>
               </label>
+              <button className="btn" onClick={this.props.removeInputs}>
+                Delete
+              </button>
             </div>
           );
         })}

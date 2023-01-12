@@ -135,6 +135,19 @@ export class App extends Component {
     }));
   };
 
+  removePracticalInputs = (e) => {
+    e.preventDefault();
+    this.setState((prevState) => {
+      const index = +e.target.closest("div").dataset.id;
+      const newItems = this.state.practical.filter((item) => item.index !== index);
+
+      return {
+        ...prevState,
+        practical: [...newItems],
+      };
+    });
+  }
+
   render() {
     return (
       <main>
@@ -146,6 +159,7 @@ export class App extends Component {
           handleContactChange={this.handleContactChange}
           handlePracticalChange={this.handlePracticalChange}
           addPracticalInputs={this.addPracticalInputs}
+          removePracticalInputs={this.removePracticalInputs}
         />
         <Preview state={this.state} />
       </main>

@@ -19,6 +19,7 @@ export class Form extends Component {
           state={this.props.state}
           handleChange={this.props.handlePracticalChange}
           addInputs={this.props.addPracticalInputs}
+          removeInputs={this.props.removePracticalInputs}
         />
       </form>
     );
