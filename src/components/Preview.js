@@ -41,9 +41,9 @@ export class Preview extends Component {
 
           <div className="preview__section">
             <h3>Education</h3>
-            {this.props.state.education.map((item) => {
+            {this.props.state.education.map((item, i) => {
               return (
-                <div className="preview__education">
+                <div className="preview__education" key={i}>
                   <p>{item.degree}</p>
                   <p>
                     {item.schoolName}, {item.schoolLocation}
@@ -58,9 +58,9 @@ export class Preview extends Component {
 
           <div className="preview__section">
             <h3>Experience</h3>
-            {this.props.state.practical.map((item) => {
+            {this.props.state.practical.map((item, i) => {
               return (
-                <div className="preview__experience">
+                <div className="preview__experience" key={i}>
                   <div className="preview__experience--left">
                     <p>
                       {item.from} - {item.to}

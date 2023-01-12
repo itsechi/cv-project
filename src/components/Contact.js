@@ -11,6 +11,7 @@ export class Contact extends Component {
             type="tel"
             name="phoneNumber"
             onChange={this.props.handleChange}
+            value={this.props.state.contact.phoneNumber}
           ></input>
         </label>
         <label>
@@ -19,6 +20,7 @@ export class Contact extends Component {
             type="email"
             name="email"
             onChange={this.props.handleChange}
+            value={this.props.state.contact.email}
           ></input>
         </label>
         <label>
@@ -27,6 +29,7 @@ export class Contact extends Component {
             type="text"
             name="address"
             onChange={this.props.handleChange}
+            value={this.props.state.contact.address}
           ></input>
         </label>
       </fieldset>

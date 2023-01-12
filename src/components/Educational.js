@@ -6,16 +6,17 @@ export class Educational extends Component {
       <fieldset>
         <legend>Educational experience</legend>
 
-        {this.props.state.education.map((item) => {
+        {this.props.state.education.map((item, i) => {
           const index = item.index;
           return (
-            <div data-id={index}>
+            <div data-id={index} key={i}>
               <label>
                 Degree{" "}
                 <input
                   type="text"
                   name="degree"
                   onChange={this.props.handleChange}
+                  value={item.degree}
                 ></input>
               </label>
               <label>
@@ -24,6 +25,7 @@ export class Educational extends Component {
                   type="text"
                   name="schoolName"
                   onChange={this.props.handleChange}
+                  value={item.schoolName}
                 ></input>
               </label>
               <label>
@@ -32,6 +34,7 @@ export class Educational extends Component {
                   type="text"
                   name="schoolLocation"
                   onChange={this.props.handleChange}
+                  value={item.schoolLocation}
                 ></input>
               </label>
               <label>
@@ -42,6 +45,7 @@ export class Educational extends Component {
                   max="2099"
                   name="schoolStartYear"
                   onChange={this.props.handleChange}
+                  value={item.schoolStartYear}
                 ></input>
               </label>
               <label>
@@ -52,6 +56,7 @@ export class Educational extends Component {
                   max="2099"
                   name="schoolEndYear"
                   onChange={this.props.handleChange}
+                  value={item.schoolEndYear}
                 ></input>
               </label>
             </div>

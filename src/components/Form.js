@@ -8,8 +8,8 @@ export class Form extends Component {
   render() {
     return (
       <form>
-        <Personal handleChange={this.props.handlePersonalChange} />
-        <Contact handleChange={this.props.handleContactChange} />
+        <Personal state={this.props.state} handleChange={this.props.handlePersonalChange} />
+        <Contact state={this.props.state} handleChange={this.props.handleContactChange} />
         <Educational
           state={this.props.state}
           handleChange={this.props.handleEducationalChange}
