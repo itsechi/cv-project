@@ -1,44 +1,42 @@
 import React, { Component } from "react";
 import { Preview } from "./components/Preview";
 import { Form } from "./components/Form";
-import "./styles.scss";
+import "./sass/main.scss";
 
 export class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       personal: {
-        firstName: "Full",
-        lastName: "Name",
-        title: "Title",
-        description:
-          "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus.",
+        firstName: "",
+        lastName: "",
+        title: "",
+        description: "",
       },
       contact: {
-        phoneNumber: "+00 123 456 789",
-        email: "fullname@gmail.com",
-        address: "Apartment 23, Street Name, 255 New York, USA",
+        phoneNumber: "",
+        email: "",
+        address: "",
       },
       education: [
         {
           index: 0,
-          degree: "Degree",
-          schoolName: "University",
-          schoolLocation: "Location",
-          schoolStartYear: 2012,
-          schoolEndYear: 2016,
+          degree: "",
+          schoolName: "",
+          schoolLocation: "",
+          schoolStartYear: "",
+          schoolEndYear: "",
         },
       ],
       practical: [
         {
           index: 0,
-          job: "Job title",
-          company: "Company name",
-          location: "Location",
-          from: 2012,
-          to: 2016,
-          tasks:
-            "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue.",
+          job: "",
+          company: "",
+          location: "",
+          from: "",
+          to: "",
+          tasks: "",
         },
       ],
     };
@@ -85,7 +83,7 @@ export class App extends Component {
         ...prevState.education,
         {
           index: this.state.education.length,
-          degree: "Degree here",
+          degree: "Degree",
           schoolName: "University",
           schoolLocation: "Location",
           schoolStartYear: 2012,

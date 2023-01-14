@@ -1,0 +1,81 @@
+$light-gray: #F2F2F2;
+$shadow: 0px 4px 10px -5px rgba(0, 0, 0, 0.25);
+$dark-gray: #252525;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  font-family: inherit;
+}
+
+body {
+  font-family: 'Red Hat Display', sans-serif;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: 2rem;
+  background-color: $light-gray;
+  padding: 3rem;
+}
+
+form {
+  padding: 2rem;
+  box-shadow: $shadow;
+  border-radius: 10px;
+  background-color: white;
+}
+
+fieldset {
+  margin-bottom: 2rem;
+}
+
+legend {
+  font-weight: 900;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+label {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.7);
+  background-color: #F2F2F2;
+  display: block;
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+  border-radius: 5px;
+  transition: 0.05s all;
+
+  &:focus-within {
+    outline: 2px solid #5F6FF7;
+    box-shadow: $shadow;
+  }
+}
+
+label input,
+label textarea {
+  font-size: 1rem;
+  display: block;
+  background: none;
+  padding: 0.25rem 0;
+  min-width: 20rem;
+}
+
+.btn {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #FFFFFF;
+  background-color: $dark-gray;
+  padding: 0.5rem 2rem;
+  border-radius: 5px;
+  width: 50%;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
