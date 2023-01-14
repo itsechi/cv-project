@@ -60,8 +60,8 @@ export class Educational extends Component {
                 ></input>
               </label>
               <button className="btn" onClick={this.props.removeInputs}>
-          Remove
-        </button>
+                Delete
+              </button>
             </div>
           );
         })}
