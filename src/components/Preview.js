@@ -3,7 +3,7 @@ import React, { Component } from "react";
 export class Preview extends Component {
   render() {
     return (
-      <section className="preview">
+      <section className="preview" id="preview">
         <div className="preview__header">
           <h1>
             {this.props.state.personal.firstName}{" "}
