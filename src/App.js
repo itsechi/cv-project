@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Preview } from "./components/Preview";
 import { Form } from "./components/Form";
 import "./sass/main.scss";
+import { exampleCV } from "./exampleCV";
 
 export class App extends Component {
   constructor(props) {
@@ -155,6 +156,11 @@ export class App extends Component {
     });
   };
 
+  loadExample = (e) => {
+    e.preventDefault();
+    this.setState(exampleCV);
+  };
+
   render() {
     return (
       <main>
@@ -168,6 +174,7 @@ export class App extends Component {
           handlePracticalChange={this.handlePracticalChange}
           addPracticalInputs={this.addPracticalInputs}
           removePracticalInputs={this.removePracticalInputs}
+          loadExample={this.loadExample}
         />
         <Preview state={this.state} />
       </main>
