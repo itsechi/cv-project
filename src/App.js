@@ -83,11 +83,11 @@ export class App extends Component {
         ...prevState.education,
         {
           index: this.state.education.length,
-          degree: "Degree",
-          schoolName: "University",
-          schoolLocation: "Location",
-          schoolStartYear: 2012,
-          schoolEndYear: 2016,
+          degree: "",
+          schoolName: "",
+          schoolLocation: "",
+          schoolStartYear: "",
+          schoolEndYear: "",
         },
       ],
     }));
@@ -130,13 +130,12 @@ export class App extends Component {
         ...prevState.practical,
         {
           index: this.state.practical.length,
-          job: "Job title",
-          company: "Company name",
-          location: "Location",
-          from: 2012,
-          to: 2016,
-          tasks:
-            "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue.",
+          job: "",
+          company: "",
+          location: "",
+          from: "",
+          to: "",
+          tasks: "",
         },
       ],
     }));
