@@ -18,7 +18,7 @@ export class Form extends Component {
 
   render() {
     return (
-      <form>
+      <form autocomplete="off">
         <Personal
           state={this.props.state}
           handleChange={this.props.handlePersonalChange}
@@ -39,7 +39,7 @@ export class Form extends Component {
           addInputs={this.props.addPracticalInputs}
           removeInputs={this.props.removePracticalInputs}
         />
-        <button className="btn" onClick={this.takeScreenshot}>Export</button>
+        <button className="btn btn--blue" onClick={this.takeScreenshot}>Export</button>
       </form>
     );
   }
