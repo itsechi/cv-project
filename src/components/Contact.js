@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
-export class Contact extends Component {
-  render() {
+export function Contact(props) {
     return (
       <fieldset>
         <legend>Contact</legend>
@@ -10,8 +9,8 @@ export class Contact extends Component {
           <input
             type="tel"
             name="phoneNumber"
-            onChange={this.props.handleChange}
-            value={this.props.state.contact.phoneNumber}
+            onChange={props.handleChange}
+            value={props.contact.phoneNumber}
           ></input>
         </label>
         <label>
@@ -19,8 +18,8 @@ export class Contact extends Component {
           <input
             type="email"
             name="email"
-            onChange={this.props.handleChange}
-            value={this.props.state.contact.email}
+            onChange={props.handleChange}
+            value={props.contact.email}
           ></input>
         </label>
         <label>
@@ -28,11 +27,10 @@ export class Contact extends Component {
           <input
             type="text"
             name="address"
-            onChange={this.props.handleChange}
-            value={this.props.state.contact.address}
+            onChange={props.handleChange}
+            value={props.contact.address}
           ></input>
         </label>
       </fieldset>
     );
-  }
 }

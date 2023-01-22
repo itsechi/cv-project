@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
-export class Personal extends Component {
-  render() {
+export function Personal(props) {
     return (
       <fieldset>
         <legend>Personal information</legend>
@@ -10,8 +9,8 @@ export class Personal extends Component {
           <input
             type="text"
             name="firstName"
-            onChange={this.props.handleChange}
-            value={this.props.state.personal.firstName}
+            onChange={props.handleChange}
+            value={props.personal.firstName}
           ></input>
         </label>
         <label>
@@ -19,8 +18,8 @@ export class Personal extends Component {
           <input
             type="text"
             name="lastName"
-            onChange={this.props.handleChange}
-            value={this.props.state.personal.lastName}
+            onChange={props.handleChange}
+            value={props.personal.lastName}
           ></input>
         </label>
         <label>
@@ -28,19 +27,18 @@ export class Personal extends Component {
           <input
             type="text"
             name="title"
-            onChange={this.props.handleChange}
-            value={this.props.state.personal.title}
+            onChange={props.handleChange}
+            value={props.personal.title}
           ></input>
         </label>
         <label>
           Description{" "}
           <textarea
             name="description"
-            onChange={this.props.handleChange}
-            value={this.props.state.personal.description}
+            onChange={props.handleChange}
+            value={props.personal.description}
           ></textarea>
         </label>
       </fieldset>
     );
-  }
 }

@@ -6,8 +6,8 @@ import React, { Component } from "react";
 import * as htmlToImage from "html-to-image";
 import download from "downloadjs";
 
-export class Form extends Component {
-  takeScreenshot = (e) => {
+export function Form(props) {
+  const takeScreenshot = (e) => {
     e.preventDefault();
     htmlToImage
       .toPng(document.getElementById("preview"))
@@ -16,32 +16,32 @@ export class Form extends Component {
       });
   };
 
-  render() {
+  
     return (
       <form autoComplete="off">
         <Personal
-          state={this.props.state}
-          handleChange={this.props.handlePersonalChange}
+          personal={props.personal}
+          handleChange={props.handlePersonalChange}
         />
         <Contact
-          state={this.props.state}
-          handleChange={this.props.handleContactChange}
+          contact={props.contact}
+          handleChange={props.handleContactChange}
         />
         <Educational
-          state={this.props.state}
-          handleChange={this.props.handleEducationalChange}
-          addInputs={this.props.addEducationalInputs}
-          removeInputs={this.props.removeEducationalInputs}
+          education={props.education}
+          handleChange={props.handleEducationalChange}
+          addInputs={props.addEducationalInputs}
+          removeInputs={props.removeEducationalInputs}
         />
         <Practical
-          state={this.props.state}
-          handleChange={this.props.handlePracticalChange}
-          addInputs={this.props.addPracticalInputs}
-          removeInputs={this.props.removePracticalInputs}
+          practical={props.practical}
+          handleChange={props.handlePracticalChange}
+          addInputs={props.addPracticalInputs}
+          removeInputs={props.removePracticalInputs}
         />
-        <button className="btn btn" onClick={this.props.loadExample}>Load example</button>
-        <button className="btn btn--blue" onClick={this.takeScreenshot}>Export</button>
+        <button className="btn btn" onClick={props.loadExample}>Load example</button>
+        <button className="btn btn--blue" onClick={takeScreenshot}>Export</button>
       </form>
     );
-  }
+  
 }

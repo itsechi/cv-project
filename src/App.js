@@ -1,183 +1,171 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { Preview } from "./components/Preview";
 import { Form } from "./components/Form";
 import "./sass/main.scss";
 import { exampleCV } from "./exampleCV";
 
-export class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      personal: {
-        firstName: "",
-        lastName: "",
-        title: "",
-        description: "",
-      },
-      contact: {
-        phoneNumber: "",
-        email: "",
-        address: "",
-      },
-      education: [
+export function App() {
+  const [personal, setPersonal] = useState({
+    firstName: "",
+    lastName: "",
+    title: "",
+    description: "",
+  });
+
+  const [contact, setContact] = useState({
+    phoneNumber: "",
+    email: "",
+    address: "",
+  });
+
+  const [education, setEducation] = useState([
+    {
+      index: 0,
+      degree: "",
+      schoolName: "",
+      schoolLocation: "",
+      schoolStartYear: "",
+      schoolEndYear: "",
+    },
+  ]);
+
+  const [practical, setPractical] = useState([
+    {
+      index: 0,
+      job: "",
+      company: "",
+      location: "",
+      from: "",
+      to: "",
+      tasks: "",
+    },
+  ]);
+
+  const handlePersonalChange = (e) => {
+    setPersonal((prevState) => {
+      return { ...prevState, [e.target.name]: e.target.value };
+    });
+    console.log(personal);
+  };
+
+  const handleContactChange = (e) => {
+    setContact((prevState) => {
+      return {
+        ...prevState,
+        [e.target.name]: e.target.value,
+      };
+    });
+    console.log(contact);
+  };
+
+  const handleEducationalChange = (e) => {
+    setEducation((prevState) => {
+      const index = +e.target.closest("div").dataset.id;
+      const newItems = prevState.map((item) => {
+        if (item.index === index) {
+          return { ...item, [e.target.name]: e.target.value };
+        } else return item;
+      });
+      return [...newItems];
+    });
+    console.log(education);
+  };
+
+  const addEducationalInputs = (e) => {
+    e.preventDefault();
+    setEducation((prevState) => {
+      return [
+        ...prevState,
         {
-          index: 0,
+          index: education.length,
           degree: "",
           schoolName: "",
           schoolLocation: "",
           schoolStartYear: "",
           schoolEndYear: "",
         },
-      ],
-      practical: [
-        {
-          index: 0,
-          job: "",
-          company: "",
-          location: "",
-          from: "",
-          to: "",
-          tasks: "",
-        },
-      ],
-    };
-  }
-
-  handlePersonalChange = (e) => {
-    this.setState((prevState) => {
-      return {
-        ...prevState,
-        personal: { ...prevState.personal, [e.target.name]: e.target.value },
-      };
+      ];
     });
+    console.log(education);
   };
 
-  handleContactChange = (e) => {
-    this.setState((prevState) => {
-      return {
-        ...prevState,
-        contact: { ...prevState.contact, [e.target.name]: e.target.value },
-      };
-    });
-  };
-
-  handleEducationalChange = (e) => {
-    this.setState((prevState) => {
+  const removeEducationalInputs = (e) => {
+    e.preventDefault();
+    setEducation((prevState) => {
       const index = +e.target.closest("div").dataset.id;
-      const newItems = this.state.education.map((item) => {
+      const newItems = prevState.filter((item) => item.index !== index);
+      return [...newItems];
+    });
+  };
+
+  const handlePracticalChange = (e) => {
+    setPractical((prevState) => {
+      const index = +e.target.closest("div").dataset.id;
+      const newItems = prevState.map((item) => {
         if (item.index === index) {
           return { ...item, [e.target.name]: e.target.value };
         } else return item;
       });
-      return {
-        ...prevState,
-        education: [...newItems],
-      };
+      return [...newItems];
     });
+    console.log(practical);
   };
 
-  addEducationalInputs = (e) => {
+  const addPracticalInputs = (e) => {
     e.preventDefault();
-    this.setState((prevState) => ({
-      ...prevState,
-      education: [
-        ...prevState.education,
+    setPractical((prevState) => {
+      return [
+        ...prevState,
         {
-          index: this.state.education.length,
+          index: education.length,
           degree: "",
           schoolName: "",
           schoolLocation: "",
           schoolStartYear: "",
           schoolEndYear: "",
         },
-      ],
-    }));
-  };
-
-  removeEducationalInputs = (e) => {
-    e.preventDefault();
-    this.setState((prevState) => {
-      const index = +e.target.closest("div").dataset.id;
-      const newItems = this.state.education.filter(
-        (item) => item.index !== index
-      );
-      return {
-        ...prevState,
-        education: [...newItems],
-      };
+      ];
     });
   };
 
-  handlePracticalChange = (e) => {
-    this.setState((prevState) => {
+  const removePracticalInputs = (e) => {
+    e.preventDefault();
+    setPractical((prevState) => {
       const index = +e.target.closest("div").dataset.id;
-      const newItems = this.state.practical.map((item) => {
-        if (item.index === index) {
-          return { ...item, [e.target.name]: e.target.value };
-        } else return item;
-      });
-      return {
-        ...prevState,
-        practical: [...newItems],
-      };
+      const newItems = prevState.filter((item) => item.index !== index);
+      return [...newItems];
     });
   };
 
-  addPracticalInputs = (e) => {
-    e.preventDefault();
-    this.setState((prevState) => ({
-      ...prevState,
-      practical: [
-        ...prevState.practical,
-        {
-          index: this.state.practical.length,
-          job: "",
-          company: "",
-          location: "",
-          from: "",
-          to: "",
-          tasks: "",
-        },
-      ],
-    }));
-  };
+  // const loadExample = (e) => {
+  //   e.preventDefault();
+  //   this.setState(exampleCV);
+  // };
 
-  removePracticalInputs = (e) => {
-    e.preventDefault();
-    this.setState((prevState) => {
-      const index = +e.target.closest("div").dataset.id;
-      const newItems = this.state.practical.filter(
-        (item) => item.index !== index
-      );
-      return {
-        ...prevState,
-        practical: [...newItems],
-      };
-    });
-  };
-
-  loadExample = (e) => {
-    e.preventDefault();
-    this.setState(exampleCV);
-  };
-
-  render() {
-    return (
-      <main>
-        <Form
-          state={this.state}
-          handleEducationalChange={this.handleEducationalChange}
-          addEducationalInputs={this.addEducationalInputs}
-          removeEducationalInputs={this.removeEducationalInputs}
-          handlePersonalChange={this.handlePersonalChange}
-          handleContactChange={this.handleContactChange}
-          handlePracticalChange={this.handlePracticalChange}
-          addPracticalInputs={this.addPracticalInputs}
-          removePracticalInputs={this.removePracticalInputs}
-          loadExample={this.loadExample}
-        />
-        <Preview state={this.state} />
-      </main>
-    );
-  }
+  return (
+    <main>
+      <Form
+        personal={personal}
+        contact={contact}
+        education={education}
+        practical={practical}
+        handleEducationalChange={handleEducationalChange}
+        addEducationalInputs={addEducationalInputs}
+        removeEducationalInputs={removeEducationalInputs}
+        handlePersonalChange={handlePersonalChange}
+        handleContactChange={handleContactChange}
+        handlePracticalChange={handlePracticalChange}
+        addPracticalInputs={addPracticalInputs}
+        removePracticalInputs={removePracticalInputs}
+        // loadExample={loadExample}
+      />
+      <Preview
+        personal={personal}
+        contact={contact}
+        education={education}
+        practical={practical}
+        handleEducationalChang
+      />
+    </main>
+  );
 }

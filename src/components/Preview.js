@@ -1,16 +1,15 @@
 import React, { Component } from "react";
 
-export class Preview extends Component {
-  render() {
+export function Preview(props) {
     return (
       <section className="preview" id="preview">
         <div className="preview__header">
           <h1>
-            {this.props.state.personal.firstName}{" "}
-            {this.props.state.personal.lastName}
+            {props.personal.firstName}{" "}
+            {props.personal.lastName}
           </h1>
-          <h3>{this.props.state.personal.title}</h3>
-          <p>{this.props.state.personal.description}</p>
+          <h3>{props.personal.title}</h3>
+          <p>{props.personal.description}</p>
         </div>
 
         <div className="preview__main">
@@ -20,28 +19,28 @@ export class Preview extends Component {
               <span className="material-icons">phone</span>
               <p>Phone</p>
               <p className="preview__user-info">
-                {this.props.state.contact.phoneNumber}
+                {props.contact.phoneNumber}
               </p>
             </div>
             <div className="preview__contact">
               <span className="material-icons">email</span>
               <p>Email</p>
               <p className="preview__user-info">
-                {this.props.state.contact.email}
+                {props.contact.email}
               </p>
             </div>
             <div className="preview__contact">
               <span className="material-icons">home</span>
               <p>Address</p>
               <p className="preview__user-info">
-                {this.props.state.contact.address}
+                {props.contact.address}
               </p>
             </div>
           </div>
 
           <div className="preview__section">
             <h3>Education</h3>
-            {this.props.state.education.map((item, i) => {
+            {props.education.map((item, i) => {
               return (
                 <div className="preview__education" key={i}>
                   <p>{item.degree}</p>
@@ -58,7 +57,7 @@ export class Preview extends Component {
 
           <div className="preview__section">
             <h3>Experience</h3>
-            {this.props.state.practical.map((item, i) => {
+            {props.practical.map((item, i) => {
               return (
                 <div className="preview__experience" key={i}>
                   <div className="preview__experience--left">
@@ -79,5 +78,4 @@ export class Preview extends Component {
         </div>
       </section>
     );
-  }
 }

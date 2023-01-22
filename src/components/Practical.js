@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 
-export class Practical extends Component {
-  render() {
+export function Practical(props) {
     return (
       <fieldset>
         <legend>Practical experience</legend>
 
-        {this.props.state.practical.map((item, i) => {
+        {props.practical.map((item, i) => {
           const index = item.index;
           return (
             <div data-id={index} key={i}>
@@ -15,7 +14,7 @@ export class Practical extends Component {
                 <input
                   type="text"
                   name="job"
-                  onChange={this.props.handleChange}
+                  onChange={props.handleChange}
                   value={item.job}
                 ></input>
               </label>
@@ -24,7 +23,7 @@ export class Practical extends Component {
                 <input
                   type="text"
                   name="company"
-                  onChange={this.props.handleChange}
+                  onChange={props.handleChange}
                   value={item.company}
                 ></input>
               </label>
@@ -33,7 +32,7 @@ export class Practical extends Component {
                 <input
                   type="text"
                   name="location"
-                  onChange={this.props.handleChange}
+                  onChange={props.handleChange}
                   value={item.location}
                 ></input>
               </label>
@@ -44,7 +43,7 @@ export class Practical extends Component {
                   min="1900"
                   max="2099"
                   name="from"
-                  onChange={this.props.handleChange}
+                  onChange={props.handleChange}
                   value={item.from}
                 ></input>
               </label>
@@ -55,7 +54,7 @@ export class Practical extends Component {
                   min="1900"
                   max="2099"
                   name="to"
-                  onChange={this.props.handleChange}
+                  onChange={props.handleChange}
                   value={item.to}
                 ></input>
               </label>
@@ -63,21 +62,20 @@ export class Practical extends Component {
                 Main tasks of the job{" "}
                 <textarea
                   name="tasks"
-                  onChange={this.props.handleChange}
+                  onChange={props.handleChange}
                   value={item.tasks}
                 ></textarea>
               </label>
-              <button className="btn" onClick={this.props.removeInputs}>
+              <button className="btn" onClick={props.removeInputs}>
                 Delete
               </button>
             </div>
           );
         })}
 
-        <button className="btn" onClick={this.props.addInputs}>
+        <button className="btn" onClick={props.addInputs}>
           Add
         </button>
       </fieldset>
     );
-  }
 }

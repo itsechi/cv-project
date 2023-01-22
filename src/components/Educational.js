@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 
-export class Educational extends Component {
-  render() {
+export function Educational(props) {
     return (
       <fieldset>
         <legend>Educational experience</legend>
 
-        {this.props.state.education.map((item, i) => {
+        {props.education.map((item, i) => {
           const index = item.index;
           return (
             <div data-id={index} key={i}>
@@ -15,7 +14,7 @@ export class Educational extends Component {
                 <input
                   type="text"
                   name="degree"
-                  onChange={this.props.handleChange}
+                  onChange={props.handleChange}
                   value={item.degree}
                 ></input>
               </label>
@@ -24,7 +23,7 @@ export class Educational extends Component {
                 <input
                   type="text"
                   name="schoolName"
-                  onChange={this.props.handleChange}
+                  onChange={props.handleChange}
                   value={item.schoolName}
                 ></input>
               </label>
@@ -33,7 +32,7 @@ export class Educational extends Component {
                 <input
                   type="text"
                   name="schoolLocation"
-                  onChange={this.props.handleChange}
+                  onChange={props.handleChange}
                   value={item.schoolLocation}
                 ></input>
               </label>
@@ -44,7 +43,7 @@ export class Educational extends Component {
                   min="1900"
                   max="2099"
                   name="schoolStartYear"
-                  onChange={this.props.handleChange}
+                  onChange={props.handleChange}
                   value={item.schoolStartYear}
                 ></input>
               </label>
@@ -55,21 +54,20 @@ export class Educational extends Component {
                   min="1900"
                   max="2099"
                   name="schoolEndYear"
-                  onChange={this.props.handleChange}
+                  onChange={props.handleChange}
                   value={item.schoolEndYear}
                 ></input>
               </label>
-              <button className="btn" onClick={this.props.removeInputs}>
+              <button className="btn" onClick={props.removeInputs}>
                 Delete
               </button>
             </div>
           );
         })}
 
-        <button className="btn" onClick={this.props.addInputs}>
+        <button className="btn" onClick={props.addInputs}>
           Add
         </button>
       </fieldset>
     );
-  }
 }
