@@ -3,6 +3,7 @@ import { Preview } from "./components/Preview";
 import { Form } from "./components/Form";
 import "./sass/main.scss";
 import { exampleCV } from "./exampleCV";
+import { nanoid } from "nanoid";
 
 export function App() {
   const [personal, setPersonal] = useState({
@@ -20,7 +21,7 @@ export function App() {
 
   const [education, setEducation] = useState([
     {
-      index: 0,
+      index: nanoid(),
       degree: "",
       schoolName: "",
       schoolLocation: "",
@@ -31,7 +32,7 @@ export function App() {
 
   const [practical, setPractical] = useState([
     {
-      index: 0,
+      index: nanoid(),
       job: "",
       company: "",
       location: "",
@@ -60,7 +61,7 @@ export function App() {
 
   const handleEducationalChange = (e) => {
     setEducation((prevState) => {
-      const index = +e.target.closest("div").dataset.id;
+      const index = e.target.closest("div").dataset.id;
       const newItems = prevState.map((item) => {
         if (item.index === index) {
           return { ...item, [e.target.name]: e.target.value };
@@ -68,7 +69,7 @@ export function App() {
       });
       return [...newItems];
     });
-    console.log(education);
+    console.log(education, e.target.closest("div").dataset.id);
   };
 
   const addEducationalInputs = (e) => {
@@ -77,7 +78,7 @@ export function App() {
       return [
         ...prevState,
         {
-          index: education.length,
+          index: nanoid(),
           degree: "",
           schoolName: "",
           schoolLocation: "",
@@ -92,7 +93,7 @@ export function App() {
   const removeEducationalInputs = (e) => {
     e.preventDefault();
     setEducation((prevState) => {
-      const index = +e.target.closest("div").dataset.id;
+      const index = e.target.closest("div").dataset.id;
       const newItems = prevState.filter((item) => item.index !== index);
       return [...newItems];
     });
@@ -100,7 +101,7 @@ export function App() {
 
   const handlePracticalChange = (e) => {
     setPractical((prevState) => {
-      const index = +e.target.closest("div").dataset.id;
+      const index = e.target.closest("div").dataset.id;
       const newItems = prevState.map((item) => {
         if (item.index === index) {
           return { ...item, [e.target.name]: e.target.value };
@@ -117,12 +118,13 @@ export function App() {
       return [
         ...prevState,
         {
-          index: education.length,
-          degree: "",
-          schoolName: "",
-          schoolLocation: "",
-          schoolStartYear: "",
-          schoolEndYear: "",
+          index: nanoid(),
+          job: "",
+          company: "",
+          location: "",
+          from: "",
+          to: "",
+          tasks: "",
         },
       ];
     });
@@ -131,7 +133,7 @@ export function App() {
   const removePracticalInputs = (e) => {
     e.preventDefault();
     setPractical((prevState) => {
-      const index = +e.target.closest("div").dataset.id;
+      const index = e.target.closest("div").dataset.id;
       const newItems = prevState.filter((item) => item.index !== index);
       return [...newItems];
     });
@@ -164,7 +166,6 @@ export function App() {
         contact={contact}
         education={education}
         practical={practical}
-        handleEducationalChang
       />
     </main>
   );
