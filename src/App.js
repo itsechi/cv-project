@@ -134,10 +134,13 @@ export function App() {
     });
   };
 
-  // const loadExample = (e) => {
-  //   e.preventDefault();
-  //   this.setState(exampleCV);
-  // };
+  const loadExample = (e) => {
+    e.preventDefault();
+    setPersonal(exampleCV.personal);
+    setEducation(exampleCV.education);
+    setContact(exampleCV.contact);
+    setPractical(exampleCV.practical);
+  };
 
   return (
     <main>
@@ -154,7 +157,7 @@ export function App() {
         handlePracticalChange={handlePracticalChange}
         addPracticalInputs={addPracticalInputs}
         removePracticalInputs={removePracticalInputs}
-        // loadExample={loadExample}
+        loadExample={loadExample}
       />
       <Preview
         personal={personal}
