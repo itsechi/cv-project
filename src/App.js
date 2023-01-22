@@ -46,7 +46,6 @@ export function App() {
     setPersonal((prevState) => {
       return { ...prevState, [e.target.name]: e.target.value };
     });
-    console.log(personal);
   };
 
   const handleContactChange = (e) => {
@@ -56,7 +55,6 @@ export function App() {
         [e.target.name]: e.target.value,
       };
     });
-    console.log(contact);
   };
 
   const handleEducationalChange = (e) => {
@@ -69,7 +67,6 @@ export function App() {
       });
       return [...newItems];
     });
-    console.log(education, e.target.closest("div").dataset.id);
   };
 
   const addEducationalInputs = (e) => {
@@ -87,7 +84,6 @@ export function App() {
         },
       ];
     });
-    console.log(education);
   };
 
   const removeEducationalInputs = (e) => {
@@ -109,7 +105,6 @@ export function App() {
       });
       return [...newItems];
     });
-    console.log(practical);
   };
 
   const addPracticalInputs = (e) => {
